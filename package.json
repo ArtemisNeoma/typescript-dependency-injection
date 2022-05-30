@@ -1,0 +1,25 @@
+{
+  "name": "TypescriptRest",
+  "version": "1.0.0",
+  "main": "dist/bin/www.js",
+  "author": "Neo-WRN",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.36",
+    "@types/sanitize-html": "^2.6.2",
+    "eslint": "^8.16.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "joi": "^17.6.0",
+    "sanitize-html": "^2.7.0",
+    "tsconfig-paths": "^4.0.0",
+    "winston": "^3.7.2"
+  }
+}
