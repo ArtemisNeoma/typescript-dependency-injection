@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import customerRouter from './customer'
+import customerRouter from './UserRouter'
 
 const router = Router()
 router.use('/customer')

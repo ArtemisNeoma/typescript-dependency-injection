@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { RouteMiddleware, IControllerUser } from 'interfaces/presentation'
 import EndPointsRouter from './AbstractRouter'
 
-export default class CustomerRouter extends EndPointsRouter {
+export default class UserRouter extends EndPointsRouter {
   controller: IControllerUser
 
   constructor (router: Router, controller: IControllerUser, middlewares: {[index: string]: RouteMiddleware} = {}) {
