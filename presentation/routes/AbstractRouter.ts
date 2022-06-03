@@ -6,7 +6,7 @@ export default abstract class EndPointsRouter implements IEndPointsRouter {
   controller: IEndPointsController
   middlewares: {[index: string]: RouteMiddleware}
 
-  constructor (router: Router, controller: IEndPointsController, middlewares: {[index: string]: RouteMiddleware}) {
+  constructor (router: Router, controller: IEndPointsController, middlewares: {[index: string]: RouteMiddleware} = {}) {
     this.router = router
     this.controller = controller
     this.middlewares = middlewares
