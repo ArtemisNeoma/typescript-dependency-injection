@@ -5,9 +5,11 @@ export interface IEndPointsController {
   service: IEndPointsService
 }
 
+export type RouteMiddleware = (req: Request, res: Response, next: NextFunction) => Promise<void>
+
 export interface IEndPointsRouter {
   router: Router
   controller: IEndPointsController
-  middleware?: {[index: string]: (req: Request, res: Response, next: NextFunction) => Promise<void>}
+  middlewares?: {[route: string]: RouteMiddleware}
   routes: () => Promise<void>
 }
