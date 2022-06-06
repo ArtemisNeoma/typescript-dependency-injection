@@ -4,6 +4,7 @@ import { ValidationError } from 'joi'
 export interface IRepositoryDatabase {
     create: (entity: object) => Promise<void>
     read: (id: number) => Promise<object | void>
+    readAll: () => Promise<object | void>
     update: (id: number, newEntity: object) => Promise<void>
     delete: (id: number) => Promise<void>
 }
@@ -12,6 +13,7 @@ export interface IEndPointsRepository {
     database: IRepositoryDatabase
     create: (entity: object) => Promise<void>
     read: (id: number) => Promise<object | void>
+    readAll: () => Promise<object | void>
     update: (id: number, newEntity: object) => Promise<void>
     delete: (id: number) => Promise<void>
 }
