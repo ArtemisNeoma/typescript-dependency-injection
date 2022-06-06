@@ -1,29 +1,29 @@
 import { Request } from 'express'
 import { ValidationError } from 'joi'
 
-interface IRepositoryDatabase {
+export interface IRepositoryDatabase {
     create: () => Promise<void>
     read: () => Promise<object>
     update: () => Promise<void>
     delete: () => Promise<void>
 }
 
-interface IEndPointsRepository {
+export interface IEndPointsRepository {
     database: IRepositoryDatabase
 }
 
-interface IServiceSchema {
+export interface IServiceSchema {
     validateAsync: (value: object, ...args: any[]) => Promise<object>
 }
-interface IContextFieldOptions {
+export interface IContextFieldOptions {
     min?: string | number | Date,
     max?: string | number | Date
   }
-interface IServiceContext {
+export interface IServiceContext {
     [index: string]: IContextFieldOptions;
   }
 
-interface IServiceValidationGroup {
+export interface IServiceValidationGroup {
     schema: IServiceSchema
     context?: IServiceContext
 }
