@@ -11,8 +11,8 @@ export default class UserController extends AbstractController implements IContr
   }
 
   async createUser (req: Request, res: Response): Promise<Response> {
-    const serviceResponse = await this.service.create(req.body)
-    return res.status(serviceResponse.code).json(serviceResponse.info)
+    const { code, info } = await this.service.create(req.body)
+    return res.status(code).json(info)
   }
 
   async listUsers (req: Request, res: Response): Promise<void> {
