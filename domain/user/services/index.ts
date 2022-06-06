@@ -1,11 +1,13 @@
 import AbstractService from '@domain/AbstractService'
 import { Request } from 'express'
-import { IEndPointsRepository, IServiceResponse, IServiceUser, IServiceValidationGroup } from 'interfaces/domain'
+import { IRepositoryUser, IServiceResponse, IServiceUser, IServiceValidationGroup } from 'interfaces/domain'
 
 export default class UserService extends AbstractService implements IServiceUser {
+  repository: IRepositoryUser
   createSchema: IServiceValidationGroup
-  constructor (repository: IEndPointsRepository, createSchema: IServiceValidationGroup) {
+  constructor (repository: IRepositoryUser, createSchema: IServiceValidationGroup) {
     super(repository)
+    this.repository = repository
     this.createSchema = createSchema
   }
 
