@@ -40,4 +40,5 @@ export interface IServiceResponse {
 
 export interface IServiceUser extends IEndPointsService {
     create: (user: Request) => Promise<IServiceResponse>
+    readAll: () => Promise<IServiceResponse>
 }

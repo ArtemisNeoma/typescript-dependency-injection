@@ -16,5 +16,7 @@ export default class UserController extends AbstractController implements IContr
   }
 
   async listUsers (req: Request, res: Response): Promise<void> {
+    const { code, info } = await this.service.readAll()
+    res.status(code).send(info)
   }
 }
