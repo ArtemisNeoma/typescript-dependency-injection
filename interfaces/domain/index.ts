@@ -2,14 +2,18 @@ import { Request } from 'express'
 import { ValidationError } from 'joi'
 
 export interface IRepositoryDatabase {
-    create: () => Promise<void>
-    read: () => Promise<object>
-    update: () => Promise<void>
-    delete: () => Promise<void>
+    create: (entity: object) => Promise<void>
+    read: (id: number) => Promise<object | void>
+    update: (id: number, newEntity: object) => Promise<void>
+    delete: (id: number) => Promise<void>
 }
 
 export interface IEndPointsRepository {
     database: IRepositoryDatabase
+    create: (entity: object) => Promise<void>
+    read: (id: number) => Promise<object | void>
+    update: (id: number, newEntity: object) => Promise<void>
+    delete: (id: number) => Promise<void>
 }
 
 export interface IServiceSchema {
