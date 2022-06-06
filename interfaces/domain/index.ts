@@ -30,7 +30,6 @@ export interface IServiceValidationGroup {
 
 export interface IEndPointsService {
     repository: IEndPointsRepository
-    validationGroup: Record<string, IServiceValidationGroup>
 }
 
 export interface IServiceResponse {
@@ -40,5 +39,6 @@ export interface IServiceResponse {
 
 export interface IServiceUser extends IEndPointsService {
     create: (user: Request) => Promise<IServiceResponse>
+    createSchema: IServiceValidationGroup
     readAll: () => Promise<IServiceResponse>
 }
