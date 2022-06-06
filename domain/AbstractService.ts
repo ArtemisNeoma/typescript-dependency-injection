@@ -1,11 +1,9 @@
-import { IEndPointsRepository, IEndPointsService, IServiceValidationGroup } from 'interfaces/domain'
+import { IEndPointsRepository, IEndPointsService } from 'interfaces/domain'
 
 export default abstract class AbstractService implements IEndPointsService {
   repository: IEndPointsRepository
-  validationGroup: Record<string, IServiceValidationGroup>
 
-  constructor (repository: IEndPointsRepository, validationGroup: Record<string, IServiceValidationGroup>) {
+  constructor (repository: IEndPointsRepository) {
     this.repository = repository
-    this.validationGroup = validationGroup
   }
 }
