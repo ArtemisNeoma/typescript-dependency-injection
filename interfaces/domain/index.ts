@@ -1,3 +1,5 @@
+import { ValidationError } from 'joi'
+
 interface IRepositoryDatabase {
     create: () => Promise<void>
     read: () => Promise<object>
@@ -28,4 +30,13 @@ interface IServiceValidationGroup {
 export interface IEndPointsService {
     repository: IEndPointsRepository
     validationGroup: Record<string, IServiceValidationGroup>
+}
+
+export interface IServiceResponse {
+    code: number,
+    info?: string | ValidationError
+}
+
+export interface IServiceUser extends IEndPointsService {
+    create: (user: Request) => Promise<IServiceResponse>
 }
