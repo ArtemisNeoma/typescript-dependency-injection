@@ -1,3 +1,4 @@
+import { Request } from 'express'
 import { ValidationError } from 'joi'
 
 interface IRepositoryDatabase {
