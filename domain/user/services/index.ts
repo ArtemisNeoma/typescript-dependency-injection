@@ -1,11 +1,17 @@
 import AbstractService from '@domain/AbstractService'
 import { Request } from 'express'
 import { IRepositoryUser, IServiceResponse, IServiceUser, IServiceValidationGroup } from 'interfaces/domain'
+import { inject, injectable } from 'tsyringe'
 
+@injectable()
 export default class UserService extends AbstractService implements IServiceUser {
   repository: IRepositoryUser
   createSchema: IServiceValidationGroup
-  constructor (repository: IRepositoryUser, createSchema: IServiceValidationGroup) {
+  constructor (
+    @inject('UserRepository')
+      repository: IRepositoryUser,
+      createSchema: IServiceValidationGroup
+  ) {
     super(repository)
     this.repository = repository
     this.createSchema = createSchema
