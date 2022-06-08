@@ -1,17 +1,26 @@
 import { Router } from 'express'
-import { RouteMiddleware, IControllerUser } from 'interfaces/presentation'
+import { RouteMiddleware, IRouterUser, ICreateUserController, IListUserController } from 'interfaces/presentation'
+import { inject, injectable } from 'tsyringe'
 import AbstractRouter from './AbstractRouter'
 
-export default class UserRouter extends AbstractRouter {
-  controller: IControllerUser
+@injectable()
+export default class UserRouter extends AbstractRouter implements IRouterUser {
+  createUserController: ICreateUserController
+  listUserController: IListUserController
+  middlewares?: { [route: string]: RouteMiddleware } | undefined
 
-  constructor (router: Router, controller: IControllerUser, middlewares: {[index: string]: RouteMiddleware} = {}) {
-    super(router, controller, middlewares)
-    this.controller = controller
+  constructor (
+    @inject('FrameworkRouter') router: Router,
+    @inject('CreateUserController') createUserController: ICreateUserController,
+    @inject('ListUserController') listUserController: IListUserController
+  ) {
+    super(router)
+    this.createUserController = createUserController
+    this.listUserController = listUserController
   }
 
   async routes (): Promise<void> {
-    this.router.post('/', this.controller.createUser)
-    this.router.get('/', this.controller.listUsers)
+    this.router.post('/', this.createUserController.handle)
+    this.router.get('/', this.listUserController.handle)
   }
 }
