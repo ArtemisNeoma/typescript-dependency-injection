@@ -7,16 +7,30 @@ export interface IEndPointsController {
   service: IEndPointsService
 }
 
-export interface IControllerUser extends IEndPointsController {
-  createUser: RouteBase<Response>
-  listUsers: RouteBase<void>
+export interface ICreateUserController extends IEndPointsController {
+  handle: RouteBase<Response>
+}
+
+export interface IListUserController extends IEndPointsController {
+  handle: RouteBase<void>
 }
 
 export type RouteMiddleware = (req: Request, res: Response, next: NextFunction) => Promise<void>
 
 export interface IEndPointsRouter {
   router: Router
-  controller: IEndPointsController
-  middlewares?: {[route: string]: RouteMiddleware}
   routes: () => Promise<void>
 }
+
+export interface IRouterUser {
+  createUserController: ICreateUserController
+  listUserController: IListUserController
+  middlewares?: {[route: string]: RouteMiddleware}
+}
+
+// export interface IFrameworkRouter {
+//   all: () => IFrameworkRouter
+//   get: () => IFrameworkRouter
+//   post: () => IFrameworkRouter
+//   patch: () => IFrameworkRouter
+// }
