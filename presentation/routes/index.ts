@@ -1,6 +1,7 @@
 import { Router } from 'express'
-import customerRouter from './UserRouter'
+import { container } from 'tsyringe'
+import UserRouter from './UserRouter'
 
 const router = Router()
-router.use('/customer')
+router.use('/customer', container.resolve(UserRouter).routes)
 export default router
