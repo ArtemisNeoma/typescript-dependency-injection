@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import 'reflect-metadata'
+import '@di/index'
 import { config } from 'dotenv'
 import { onListening, onError } from './serverInfo'
 import app from 'index'
