@@ -1,11 +1,17 @@
 import UserRepository from '@domain/user/repository/UserRepository'
 import UserService from '@domain/user/services'
+import DatabaseVariable from 'database/variable'
 import { Router } from 'express'
-import { IRepositoryUser, IServiceUser } from 'interfaces/domain'
+import { IRepositoryDatabase, IRepositoryUser, IServiceUser } from 'interfaces/domain'
 import { ICreateUserController, IListUserController } from 'interfaces/presentation'
 import CreateUserController from 'presentation/controller/CreateUserController'
 import ListUserController from 'presentation/controller/ListUserController'
 import { container } from 'tsyringe'
+
+container.registerSingleton<IRepositoryDatabase>(
+  'Database',
+  DatabaseVariable
+)
 
 container.registerSingleton<IRepositoryUser>(
   'UserRepository',
