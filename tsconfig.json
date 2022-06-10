@@ -31,7 +31,10 @@
     "paths": {                                           /* Specify a set of entries that re-map imports to additional lookup locations. */
       "@bin/*": ["./bin/*"],
       "@config/*": ["./config/*"],
+      "@database/*": ["./database/*"],
+      "@di/*": ["./di/*"],
       "@domain/*": ["./domain/*"],
+      "@interfaces": ["./interfaces/*"],
       "@middleware/*": ["./middleware/*"],
       "@presentation/*": ["./domain/*"],
       "@util/*": ["./util/*"]
