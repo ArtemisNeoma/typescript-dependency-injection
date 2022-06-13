@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 import { Router } from 'express'
 import { RouteMiddleware, IRouterUser, ICreateUserController, IListUserController } from 'interfaces/presentation'
 import { inject, injectable } from 'tsyringe'
