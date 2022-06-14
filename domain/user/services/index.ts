@@ -10,6 +10,7 @@ export default class UserService extends AbstractService implements IServiceUser
   constructor (
     @inject('UserRepository')
       repository: IRepositoryUser,
+    @inject('UserCreateSchema')
       createSchema: IServiceValidationGroup
   ) {
     super(repository)
