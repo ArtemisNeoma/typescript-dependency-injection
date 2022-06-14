@@ -10,7 +10,7 @@ const { object } = Joi.types()
 const emailValidation = (name: string) => stringValidation(name)
   .email({ tlds: false })
 
-const userSchema = object.keys({
+const userCreateSchema = object.keys({
   full_name: stringValidation('full_name')
     .min(1)
     .message('Full name lenght must be at least 1')
@@ -46,4 +46,4 @@ const userSchema = object.keys({
   abortEarly: false
 })
 
-export default userSchema
+export default userCreateSchema
