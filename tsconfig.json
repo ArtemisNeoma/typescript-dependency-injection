@@ -34,7 +34,7 @@
       "@database/*": ["./database/*"],
       "@di/*": ["./di/*"],
       "@domain/*": ["./domain/*"],
-      "@interfaces": ["./interfaces/*"],
+      "@interfaces/*": ["./interfaces/*"],
       "@middleware/*": ["./middleware/*"],
       "@presentation/*": ["./domain/*"],
       "@util/*": ["./util/*"]
