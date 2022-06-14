@@ -18,6 +18,7 @@ export default class UserRouter extends AbstractRouter implements IRouterUser {
     super(router)
     this.createUserController = createUserController
     this.listUserController = listUserController
+    this.routes()
   }
 
   async routes (): Promise<void> {

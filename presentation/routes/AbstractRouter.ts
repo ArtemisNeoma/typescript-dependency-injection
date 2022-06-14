@@ -6,7 +6,6 @@ export default abstract class AbstractRouter implements IEndPointsRouter {
 
   constructor (router: Router) {
     this.router = router
-    this.routes()
   }
 
   protected abstract routes (): Promise<void>
