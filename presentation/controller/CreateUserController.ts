@@ -12,7 +12,7 @@ export default class CreateUserController extends AbstractController implements 
     this.service = service
   }
 
-  async handle (req: Request, res: Response): Promise<Response> {
+  handle = async (req: Request, res: Response): Promise<Response> => {
     const { code, info } = await this.service.create(req.body)
     return res.status(code).json(info)
   }

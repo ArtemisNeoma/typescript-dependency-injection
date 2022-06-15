@@ -12,8 +12,8 @@ export default class ListUserController extends AbstractController implements IL
     this.service = service
   }
 
-  async handle (req: Request, res: Response): Promise<void> {
+  handle = async (req: Request, res: Response): Promise<void> => {
     const { code, info } = await this.service.readAll()
-    res.status(code).send(info)
+    res.status(code).send(`{ message: ${info} }`)
   }
 }
