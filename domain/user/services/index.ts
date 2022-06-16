@@ -20,8 +20,8 @@ export default class UserService extends AbstractService implements IServiceUser
 
   async create (user: Request): Promise<IServiceResponse> {
     try {
-      const { schema, context } = this.createSchema
-      const newUser = await schema.validateAsync(user, context)
+      const { schema } = this.createSchema
+      const newUser = await schema.validateAsync(user)
       this.repository.create(newUser)
       return { code: 201, info: 'User Created' }
     } catch (err: any) {

@@ -31,7 +31,6 @@ export interface IServiceContext {
 
 export interface IServiceValidationGroup {
     schema: IServiceSchema
-    context?: IServiceContext
 }
 
 export interface IEndPointsService {
