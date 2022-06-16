@@ -7,40 +7,36 @@ import getCep from './getCep'
 
 const { object } = Joi.types()
 
-const emailValidation = (name: string) => stringValidation(name)
+const emailValidation = (name: string) => stringValidation({ name })
   .email({ tlds: false })
 
 const userCreateSchema = object.keys({
-  full_name: stringValidation('full_name')
-    .min(1)
-    .message('Full name lenght must be at least 1')
-    .max(256)
-    .message('Full name can\'t be longer than 256 characters')
+  full_name: stringValidation({ name: 'full_name', min: 1, max: 256 })
     .required(),
   email: emailValidation('email').required(),
   email_confirmation: emailValidation('email_confirmation')
     .valid(Joi.ref('email'))
     .required(),
-  cpf: numberStringValidation('cpf')
+  cpf: numberStringValidation({ name: 'cpf', min: 11, max: 14 })
     .custom((value, helpers) => {
       if (isCpfValid(value)) { return value }
       return helpers.error('any.invalid')
     })
     .required(),
-  cellphone: numberStringValidation('cellphone').required(),
-  birthdate: dateValidation('birthdate')
-    .max('now')
+  cellphone: numberStringValidation({ name: 'cellphone', min: 11, max: 15 })
+    .required(),
+  birthdate: dateValidation({ name: 'birthdate', max: 'now' })
     .required(),
   email_sms: booleanValidation(),
   whatsapp: booleanValidation(),
-  country: stringValidation('country')
+  country: stringValidation({ name: 'country', min: 1, max: 256 })
     .required(),
-  city: stringValidation('city')
+  city: stringValidation({ name: 'city', min: 1, max: 256 })
     .required(),
-  postal_code: numberStringValidation('postal_code')
+  postal_code: numberStringValidation({ name: 'postal_code', min: 8, max: 9 })
     .external(getCep)
     .required(),
-  address: stringValidation('address')
+  address: stringValidation({ name: 'address', min: 1, max: 256 })
     .required()
 }).or('email_sms', 'whatsapp').options({
   abortEarly: false
