@@ -1,28 +1,36 @@
 import { IRepositoryDatabase } from 'interfaces/domain'
 
-export default class DatabaseVariable implements IRepositoryDatabase {
-  private data: Array<object> = []
+export default class _databaseVariable implements IRepositoryDatabase {
+  private _data: Map<number, object> = new Map<number, object>()
+
+  async getNewIndex (): Promise<number> {
+    const idArray = Object.keys(this._data).map(Number)
+    if (idArray.length === 0) {
+      return 0
+    }
+    return Math.max(...idArray) + 1
+  }
 
   async create (entity: object): Promise<void> {
-    this.data.push(entity)
+    this._data.set(await this.getNewIndex(), entity)
   }
 
-  async read (id: number): Promise<void | object> {
-    return this.data.at(id)
+  async read (id: number): Promise<undefined | object> {
+    return this._data.get(id)
   }
 
-  async readAll (): Promise<void | object> {
-    return this.data
+  async readAll (): Promise<undefined | Map<number, object>> {
+    return this._data
   }
 
   async update (id: number, newEntity: object): Promise<void> {
-    this.data[id] = newEntity
+    this._data.set(id, newEntity)
   }
 
   async delete (id: number): Promise<void> {
-    this.data.forEach((value, index) => {
+    this._data.forEach((value, index) => {
       if (index === id) {
-        this.data.splice(index, 1)
+        this._data.delete(id)
       }
     })
   }
