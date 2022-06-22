@@ -32,7 +32,11 @@ export default class UserService extends AbstractService implements IServiceUser
   async readAll (): Promise<IServiceResponse> {
     try {
       const allUsers = await this.repository.readAll()
-      return { code: 200, info: `${allUsers}` }
+      if (allUsers !== undefined) {
+        const usersJSON = Object.fromEntries(allUsers)
+        return { code: 200, info: usersJSON }
+      }
+      return { code: 404 }
     } catch (err) {
       return { code: 500, info: `${err}` }
     }

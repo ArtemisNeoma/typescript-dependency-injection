@@ -39,7 +39,7 @@ export interface IEndPointsService {
 
 export interface IServiceResponse {
     code: number,
-    info?: string | ValidationError
+    info?: string | object | ValidationError
 }
 
 export interface IServiceUser extends IEndPointsService {
