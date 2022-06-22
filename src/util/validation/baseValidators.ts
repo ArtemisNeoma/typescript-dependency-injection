@@ -26,7 +26,6 @@ export const stringValidation = ({ name, min, max }: IStringValidationOptions): 
 
 export const numberStringValidation = ({ name, min, max }: IStringValidationOptions): StringSchema => {
   const baseSchema = stringValidation({ name, min, max })
-    .custom((value: string) => { console.log(value); return value })
     .replace(/\D/g, '')
   return stringLenghtValidation(baseSchema, min, min)
 }
