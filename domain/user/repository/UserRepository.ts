@@ -15,7 +15,7 @@ export default class UserRepository extends AbstractRepository implements IRepos
     this.database.create(entity)
   }
 
-  async readAll (): Promise<void | object> {
+  async readAll (): Promise<undefined | Map<number, object>> {
     return this.database.readAll()
   }
 }
