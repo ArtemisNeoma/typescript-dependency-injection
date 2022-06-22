@@ -29,8 +29,8 @@ export default class _databaseVariable implements IRepositoryDatabase {
   }
 
   async delete (id: number): Promise<void> {
-    this._data.forEach((value, index) => {
-      if (index === id) {
+    this._data.forEach((value: object, key: number) => {
+      if (key === id) {
         this._data.delete(id)
       }
     })
