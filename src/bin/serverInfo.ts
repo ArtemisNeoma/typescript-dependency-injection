@@ -22,7 +22,7 @@ export const onError = (error: NodeJS.ErrnoException, port: string | number) :ne
   }
 }
 
-export const onListening = (port: string | number) => {
+export const onListening = (port: string | number): void => {
   serverLogger.log({
     level: 'info',
     message: `Listening on port ${port}`
