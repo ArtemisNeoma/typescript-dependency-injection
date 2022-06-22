@@ -1,8 +1,8 @@
-const isCpfValid = (cpf: string) => {
+const isCpfValid = (cpf: string): boolean => {
   let cpfArray = Array.from(cpf, Number)
   const confirmationDigits = cpfArray.slice(-2)
   cpfArray = cpfArray.slice(0, -2)
-  const calcDigit = (start:number = 1) => cpfArray.reduce((
+  const calcDigit = (start:number = 1): number => cpfArray.reduce((
     previousValue: number,
     currentValue: number,
     currentIndex: number
