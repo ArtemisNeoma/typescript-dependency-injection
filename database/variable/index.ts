@@ -4,7 +4,7 @@ export default class _databaseVariable implements IRepositoryDatabase {
   private _data: Map<number, object> = new Map<number, object>()
 
   async getNewIndex (): Promise<number> {
-    const idArray = Object.keys(this._data).map(Number)
+    const idArray = Array.from(this._data.keys())
     if (idArray.length === 0) {
       return 0
     }
@@ -12,6 +12,7 @@ export default class _databaseVariable implements IRepositoryDatabase {
   }
 
   async create (entity: object): Promise<void> {
+    console.log('NEW INDEX: ', await this.getNewIndex())
     this._data.set(await this.getNewIndex(), entity)
   }
 
