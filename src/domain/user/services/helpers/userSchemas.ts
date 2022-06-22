@@ -1,4 +1,4 @@
-import Joi from 'joi'
+import Joi, { ErrorReport, StringSchema } from 'joi'
 import isCpfValid from '@util/validation/validateData'
 import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation
@@ -7,7 +7,7 @@ import getCep from './getCep'
 
 const { object } = Joi.types()
 
-const emailValidation = (name: string) => stringValidation({ name })
+const emailValidation = (name: string): StringSchema => stringValidation({ name })
   .email({ tlds: false })
 
 const userCreateSchema = object.keys({
@@ -18,7 +18,7 @@ const userCreateSchema = object.keys({
     .valid(Joi.ref('email'))
     .required(),
   cpf: numberStringValidation({ name: 'cpf', min: 11, max: 14 })
-    .custom((value, helpers) => {
+    .custom((value, helpers): string | ErrorReport => {
       if (isCpfValid(value)) { return value }
       return helpers.error('any.invalid')
     })
