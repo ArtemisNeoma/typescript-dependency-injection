@@ -9,12 +9,12 @@ const getCep = async (value: string) => {
   } catch (error) {
     console.log(error)
     throw new Joi.ValidationError(
-      'any.invalid',
+      'postal_code.invalid',
       [
         {
-          message: 'any.invalid',
+          message: 'postal_code.invalid',
           path: ['postal_code'],
-          type: 'any.invalid',
+          type: 'postal_code.invalid',
           context: {
             key: 'postal_code',
             label: 'postal_code',
@@ -25,23 +25,6 @@ const getCep = async (value: string) => {
       value
     )
   }
-
-  throw new Joi.ValidationError(
-    'any.invalid',
-    [
-      {
-        message: 'any.invalid',
-        path: ['postal_code'],
-        type: 'any.invalid',
-        context: {
-          key: 'postal_code',
-          label: 'postal_code',
-          value
-        }
-      }
-    ],
-    value
-  )
 }
 
 export default getCep
