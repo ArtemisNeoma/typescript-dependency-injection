@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import Joi from 'joi'
 
-const getCep = async (value: string) => {
+const getCep = async (value: string): Promise<undefined> => {
   let apiResponse: AxiosResponse
   try {
     apiResponse = await axios.get(`https://cep.awesomeapi.com.br/json/${value}`)
