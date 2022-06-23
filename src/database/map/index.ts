@@ -1,6 +1,6 @@
 import { IRepositoryDatabase } from 'interfaces/domain'
 
-export default class _databaseVariable implements IRepositoryDatabase {
+export default class DatabaseMap implements IRepositoryDatabase {
   private _data: Map<number, object> = new Map<number, object>()
 
   async getNewIndex (): Promise<number> {
