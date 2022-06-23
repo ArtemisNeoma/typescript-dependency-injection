@@ -42,11 +42,11 @@ export interface IServiceResponse {
     info?: string | object | ValidationError
 }
 
-export interface IServiceCreateUser extends IEndPointsService {
+export interface ICreateUserService extends IEndPointsService {
     create: (user: Request) => Promise<IServiceResponse>
     createSchema: IServiceValidationGroup
 }
 
-export interface IServiceListUser extends IEndPointsService {
+export interface IListUserService extends IEndPointsService {
     readAll: () => Promise<IServiceResponse>
 }
