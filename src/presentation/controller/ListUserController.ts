@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { IServiceListUser } from 'interfaces/domain'
-import { IListUserController } from 'interfaces/presentation'
+import { IListUserController } from 'interfaces/presentation/controller'
 import { inject, injectable } from 'tsyringe'
 import AbstractController from './AbstractController'
 

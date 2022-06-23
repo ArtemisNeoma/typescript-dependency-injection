@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { IEndPointsRouter } from 'interfaces/presentation'
+import { IEndPointsRouter } from 'interfaces/presentation/router'
 
 export default abstract class AbstractRouter implements IEndPointsRouter {
   router: Router
