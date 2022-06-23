@@ -1,10 +1,10 @@
 import AbstractService from '@domain/AbstractService'
 import { Request } from 'express'
-import { IRepositoryUser, IServiceResponse, IServiceUser, IServiceValidationGroup } from 'interfaces/domain'
+import { IRepositoryUser, IServiceResponse, IServiceCreateUser, IServiceValidationGroup } from 'interfaces/domain'
 import { inject, injectable } from 'tsyringe'
 
 @injectable()
-export default class UserService extends AbstractService implements IServiceUser {
+export default class CreateUserService extends AbstractService implements IServiceCreateUser {
   repository: IRepositoryUser
   createSchema: IServiceValidationGroup
   constructor (
@@ -26,19 +26,6 @@ export default class UserService extends AbstractService implements IServiceUser
       return { code: 201, info: 'User Created' }
     } catch (err: any) {
       return { code: 422, info: err }
-    }
-  }
-
-  async readAll (): Promise<IServiceResponse> {
-    try {
-      const allUsers = await this.repository.readAll()
-      if (allUsers !== undefined) {
-        const usersJSON = Object.fromEntries(allUsers)
-        return { code: 200, info: usersJSON }
-      }
-      return { code: 404 }
-    } catch (err) {
-      return { code: 500, info: `${err}` }
     }
   }
 }
