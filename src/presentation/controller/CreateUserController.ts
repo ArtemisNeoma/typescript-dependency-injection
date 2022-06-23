@@ -1,13 +1,13 @@
 import { Request, Response } from 'express'
-import { IServiceUser } from 'interfaces/domain'
+import { IServiceCreateUser } from 'interfaces/domain'
 import { ICreateUserController } from 'interfaces/presentation'
 import { inject, injectable } from 'tsyringe'
 import AbstractController from './AbstractController'
 
 @injectable()
 export default class CreateUserController extends AbstractController implements ICreateUserController {
-  service: IServiceUser
-  constructor (@inject('UserService') service: IServiceUser) {
+  service: IServiceCreateUser
+  constructor (@inject('CreateUserService') service: IServiceCreateUser) {
     super(service)
     this.service = service
   }

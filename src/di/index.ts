@@ -26,9 +26,15 @@ container.register<IServiceValidationGroup>(
   { useValue: userCreateValidation }
 )
 
-container.register<IServiceUser>(
-  'UserService',
-  UserService
+// Controllers
+container.register<IServiceCreateUser>(
+  'CreateUserService',
+  CreateUserService
+)
+
+container.register<IServiceListUser>(
+  'ListUserService',
+  ListUserService
 )
 
 // Routers
