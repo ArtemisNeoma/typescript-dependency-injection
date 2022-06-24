@@ -1,7 +1,6 @@
-import { NextFunction, Request, Response, Router } from 'express'
+import { MiddlewareArray } from '@interfaces/middleware'
+import { Router } from 'express'
 import { ICreateUserController, IListUserController } from './controller'
-
-export type RouteMiddleware = (req: Request, res: Response, next: NextFunction) => Promise<void>
 
 export interface IEndPointsRouter {
   router: Router
@@ -11,7 +10,7 @@ export interface IEndPointsRouter {
 export interface IRouterUser {
   createUserController: ICreateUserController
   listUserController: IListUserController
-  createMiddlewares?: Array<RouteMiddleware>
+  createMiddlewares?: MiddlewareArray
 }
 
 // export interface IFrameworkRouter {
