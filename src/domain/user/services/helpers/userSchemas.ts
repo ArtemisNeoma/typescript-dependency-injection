@@ -1,5 +1,5 @@
 import Joi, { ErrorReport, StringSchema } from 'joi'
-import isCpfValid from '@util/validation/validateData'
+import isCpfValid from '@util/validation/Cpf/isCpfValid'
 import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation
 } from '@util/validation/baseValidators'
