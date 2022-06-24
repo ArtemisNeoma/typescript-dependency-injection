@@ -1,7 +1,9 @@
 import CreateUserService from '@domain/user/services/CreateUserService'
 import ListUserService from '@domain/user/services/ListUserService'
 import { ICreateUserService, IListUserService } from '@interfaces/domain/service'
+import { MiddlewareArray } from '@interfaces/middleware'
 import { ICreateUserController, IListUserController } from '@interfaces/presentation/controller'
+import createUserMiddlewares from '@middleware/user/createMiddlewares'
 import { Router } from 'express'
 import CreateUserController from 'presentation/controller/CreateUserController'
 import ListUserController from 'presentation/controller/ListUserController'
@@ -29,4 +31,8 @@ container.register<ICreateUserController>(
 container.register<IListUserController>(
   'ListUserController',
   ListUserController
+)
+container.register<MiddlewareArray>(
+  'CreateUserMiddlewares',
+  { useValue: createUserMiddlewares }
 )

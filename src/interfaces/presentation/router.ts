@@ -10,7 +10,7 @@ export interface IEndPointsRouter {
 export interface IRouterUser {
   createUserController: ICreateUserController
   listUserController: IListUserController
-  createMiddlewares?: MiddlewareArray
+  createMiddlewares: MiddlewareArray
 }
 
 // export interface IFrameworkRouter {
