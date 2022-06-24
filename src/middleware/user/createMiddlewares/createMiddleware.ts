@@ -1,8 +1,8 @@
-import { RouteMiddleware } from '@interfaces/presentation/router'
+import { RouteMiddleware } from '@interfaces/middleware'
 import { NextFunction, Request, Response } from 'express'
 import userSchema from './schema'
 
-const createMiddleware: RouteMiddleware = async (req: Request, res: Response, next: NextFunction) => {
+export const createMiddleware: RouteMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const validateBody = await userSchema.validateAsync(req.body)
     req.body = validateBody
@@ -12,5 +12,3 @@ const createMiddleware: RouteMiddleware = async (req: Request, res: Response, ne
     next(error)
   }
 }
-
-export default createMiddleware
