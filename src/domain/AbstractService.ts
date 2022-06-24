@@ -1,4 +1,5 @@
-import { IEndPointsRepository, IEndPointsService } from 'interfaces/domain'
+import { IEndPointsRepository } from 'interfaces/domain/repository'
+import { IEndPointsService } from 'interfaces/domain/service'
 
 export default abstract class AbstractService implements IEndPointsService {
   repository: IEndPointsRepository

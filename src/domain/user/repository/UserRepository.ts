@@ -1,5 +1,5 @@
 import AbstractRepository from '@domain/AbstractRepository'
-import { IRepositoryDatabase, IRepositoryUser } from 'interfaces/domain'
+import { IRepositoryDatabase, IRepositoryUser } from 'interfaces/domain/repository'
 import { inject, injectable } from 'tsyringe'
 
 @injectable()

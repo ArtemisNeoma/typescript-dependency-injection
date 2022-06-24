@@ -1,4 +1,4 @@
-import { IRepositoryDatabase } from 'interfaces/domain'
+import { IRepositoryDatabase } from 'interfaces/domain/repository'
 
 export default class DatabaseMap implements IRepositoryDatabase {
   private _data: Map<number, object> = new Map<number, object>()

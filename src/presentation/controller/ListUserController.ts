@@ -1,13 +1,13 @@
 import { Request, Response } from 'express'
-import { IServiceListUser } from 'interfaces/domain'
+import { IListUserService } from 'interfaces/domain/service'
 import { IListUserController } from 'interfaces/presentation/controller'
 import { inject, injectable } from 'tsyringe'
 import AbstractController from './AbstractController'
 
 @injectable()
 export default class ListUserController extends AbstractController implements IListUserController {
-  service: IServiceListUser
-  constructor (@inject('ListUserService') service: IServiceListUser) {
+  service: IListUserService
+  constructor (@inject('ListUserService') service: IListUserService) {
     super(service)
     this.service = service
   }

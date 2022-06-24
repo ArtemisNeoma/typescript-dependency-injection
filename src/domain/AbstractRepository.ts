@@ -1,4 +1,4 @@
-import { IEndPointsRepository, IRepositoryDatabase } from 'interfaces/domain'
+import { IEndPointsRepository, IRepositoryDatabase } from 'interfaces/domain/repository'
 
 export default abstract class AbstractRepository implements IEndPointsRepository {
   database: IRepositoryDatabase
