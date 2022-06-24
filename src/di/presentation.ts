@@ -1,18 +1,18 @@
 import CreateUserService from '@domain/user/services/CreateUserService'
 import ListUserService from '@domain/user/services/ListUserService'
-import { IServiceCreateUser, IServiceListUser } from '@interfaces/domain'
-import { ICreateUserController, IListUserController } from '@interfaces/presentation'
+import { ICreateUserService, IListUserService } from '@interfaces/domain/service'
+import { ICreateUserController, IListUserController } from '@interfaces/presentation/controller'
 import { Router } from 'express'
 import CreateUserController from 'presentation/controller/CreateUserController'
 import ListUserController from 'presentation/controller/ListUserController'
 import { container } from 'tsyringe'
 
-container.register<IServiceCreateUser>(
+container.register<ICreateUserService>(
   'CreateUserService',
   CreateUserService
 )
 
-container.register<IServiceListUser>(
+container.register<IListUserService>(
   'ListUserService',
   ListUserService
 )
