@@ -11,7 +11,7 @@ export interface IEndPointsRouter {
 export interface IRouterUser {
   createUserController: ICreateUserController
   listUserController: IListUserController
-  middlewares?: {[route: string]: RouteMiddleware}
+  createMiddlewares?: Array<RouteMiddleware>
 }
 
 // export interface IFrameworkRouter {

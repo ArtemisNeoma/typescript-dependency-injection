@@ -9,7 +9,7 @@ import AbstractRouter from './AbstractRouter'
 export default class UserRouter extends AbstractRouter implements IRouterUser {
   createUserController: ICreateUserController
   listUserController: IListUserController
-  middlewares?: { [route: string]: RouteMiddleware } | undefined
+  createMiddlewares?: Array<RouteMiddleware>
 
   constructor (
     @inject('FrameworkRouter') router: Router,
