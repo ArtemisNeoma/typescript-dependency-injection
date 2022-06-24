@@ -1,4 +1,4 @@
-import { IDateValidationOptions, IStringValidationOptions } from '@interfaces/util'
+import { IDateValidationOptions, IStringValidationOptions } from '@interfaces/util/validation'
 import Joi, { BooleanSchema, DateSchema, StringSchema } from 'joi'
 import sanitizeHtml from 'sanitize-html'
 
