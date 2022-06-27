@@ -12,7 +12,6 @@ export default class DatabaseMap implements IRepositoryDatabase {
   }
 
   async create (entity: object): Promise<void> {
-    console.log('NEW INDEX: ', await this.getNewIndex())
     this._data.set(await this.getNewIndex(), entity)
   }
 

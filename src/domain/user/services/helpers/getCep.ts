@@ -7,7 +7,6 @@ const getCep = async (value: string): Promise<undefined> => {
     apiResponse = await axios.get(`https://cep.awesomeapi.com.br/json/${value}`)
     if (apiResponse.status === 200) return undefined
   } catch (error) {
-    console.log(error)
     throw new Joi.ValidationError(
       'postal_code.invalid',
       [
