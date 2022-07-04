@@ -3,7 +3,7 @@ import { ValidationError } from 'joi'
 import { IEndPointsRepository } from './repository'
 
 export interface IServiceSchema {
-    validateAsync: (value: object, ...args: any[]) => Promise<object>
+    validateAsync (value: object, ...args: any[]): Promise<object>
 }
 export interface IContextFieldOptions {
     min?: string | number | Date,
@@ -27,10 +27,10 @@ export interface IServiceResponse {
 }
 
 export interface ICreateUserService extends IEndPointsService {
-    create: (user: Request) => Promise<IServiceResponse>
+    create (user: Request): Promise<IServiceResponse>
     createSchema: IServiceValidationGroup
 }
 
 export interface IListUserService extends IEndPointsService {
-    readAll: () => Promise<IServiceResponse>
+    readAll (): Promise<IServiceResponse>
 }
