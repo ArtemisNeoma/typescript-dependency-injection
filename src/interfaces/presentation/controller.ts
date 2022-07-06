@@ -8,9 +8,9 @@ export interface IEndPointsController {
 }
 
 export interface ICreateUserController extends IEndPointsController {
-  handle (): RouteBase<Response>
+  handle: RouteBase<Response>
 }
 
 export interface IListUserController extends IEndPointsController {
-  handle (): RouteBase<void>
+  handle: RouteBase<void>
 }
