@@ -1,11 +1,10 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import Joi from 'joi'
 
 const getCep = async (value: string): Promise<undefined> => {
-  let apiResponse: AxiosResponse
   try {
-    apiResponse = await axios.get(`https://cep.awesomeapi.com.br/json/${value}`)
-    if (apiResponse.status === 200) return undefined
+    const { status } = await axios.get(`https://cep.awesomeapi.com.br/json/${value}`)
+    if (status === 200) return undefined
   } catch (error) {
     throw new Joi.ValidationError(
       'postal_code.invalid',

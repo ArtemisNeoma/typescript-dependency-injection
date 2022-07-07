@@ -25,8 +25,8 @@ export default class CreateUserService extends AbstractService implements ICreat
       const newUser = await schema.validateAsync(user)
       this.repository.create(newUser)
       return { code: 201, info: 'User Created' }
-    } catch (err: any) {
-      return { code: 422, info: err }
+    } catch (err) {
+      return { code: 422, info: err as any }
     }
   }
 }
