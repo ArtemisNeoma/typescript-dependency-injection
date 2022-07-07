@@ -12,10 +12,3 @@ export interface IRouterUser {
   listUserController: IListUserController
   createMiddlewares: MiddlewareArray
 }
-
-// export interface IFrameworkRouter {
-//   all: () => IFrameworkRouter
-//   get: () => IFrameworkRouter
-//   post: () => IFrameworkRouter
-//   patch: () => IFrameworkRouter
-// }
