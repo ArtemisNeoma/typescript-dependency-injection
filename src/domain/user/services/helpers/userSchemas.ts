@@ -4,7 +4,7 @@ import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation
 } from '@util/validation/baseValidators'
 import getCep from './getCep'
-import { ISchema } from '@interfaces/domain/service'
+import { ISchema } from '@interfaces/domain/services/validation'
 import { IUser } from '@interfaces/domain/repository'
 
 const { object } = Joi.types()

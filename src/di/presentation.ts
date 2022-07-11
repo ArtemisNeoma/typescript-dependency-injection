@@ -1,6 +1,6 @@
 import CreateUserService from '@domain/user/services/CreateUserService'
 import ListUserService from '@domain/user/services/ListUserService'
-import { ICreateUserService, IListUserService } from '@interfaces/domain/service'
+import { ICreateUserService, IListUserService } from '@interfaces/domain/services/service'
 import { MiddlewareArray } from '@interfaces/middleware'
 import { ICreateUserController, IListUserController } from '@interfaces/presentation/controller'
 import createUserMiddlewares from '@middleware/user/createMiddlewares'

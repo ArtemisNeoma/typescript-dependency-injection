@@ -1,5 +1,5 @@
 import AbstractService from '@domain/AbstractService'
-import { IServiceResponse, IListUserService } from 'interfaces/domain/service'
+import { IServiceResponse, IListUserService } from 'interfaces/domain/services/service'
 import { IRepositoryUser } from 'interfaces/domain/repository'
 import { inject, injectable } from 'tsyringe'
 

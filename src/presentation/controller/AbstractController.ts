@@ -1,4 +1,4 @@
-import { IEndPointsService } from 'interfaces/domain/service'
+import { IEndPointsService } from 'interfaces/domain/services/service'
 import { IEndPointsController } from 'interfaces/presentation/controller'
 
 export default abstract class AbstractController implements IEndPointsController {

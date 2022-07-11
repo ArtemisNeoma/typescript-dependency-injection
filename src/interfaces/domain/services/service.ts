@@ -1,20 +1,6 @@
 import { ValidationError } from 'joi'
-import { IEndPointsRepository, IUser } from './repository'
-
-export interface ISchema<Target> {
-    validateAsync (value: Target, ...args: any[]): Promise<Target>
-}
-export interface IContextFieldOptions {
-    min?: string | number | Date,
-    max?: string | number | Date
-  }
-export interface IServiceContext {
-    [index: string]: IContextFieldOptions;
-  }
-
-export interface IServiceValidationGroup<Target> {
-    schema: ISchema<Target>
-}
+import { IEndPointsRepository, IUser } from '../repository'
+import { IServiceValidationGroup } from './validation'
 
 export interface IEndPointsService {
     repository: IEndPointsRepository

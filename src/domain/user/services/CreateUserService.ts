@@ -1,7 +1,8 @@
 import AbstractService from '@domain/AbstractService'
-import { IServiceResponse, ICreateUserService, IServiceValidationGroup } from 'interfaces/domain/service'
+import { IServiceResponse, ICreateUserService } from 'interfaces/domain/services/service'
 import { IRepositoryUser, IUser } from 'interfaces/domain/repository'
 import { inject, injectable } from 'tsyringe'
+import { IServiceValidationGroup } from '@interfaces/domain/services/validation'
 
 @injectable()
 export default class CreateUserService extends AbstractService implements ICreateUserService {
