@@ -1,9 +1,8 @@
-import { Request } from 'express'
 import { ValidationError } from 'joi'
-import { IEndPointsRepository } from './repository'
+import { IEndPointsRepository, IUser } from './repository'
 
-export interface IServiceSchema {
-    validateAsync (value: object, ...args: any[]): Promise<object>
+export interface ISchema<Target> {
+    validateAsync (value: Target, ...args: any[]): Promise<Target>
 }
 export interface IContextFieldOptions {
     min?: string | number | Date,
@@ -13,8 +12,8 @@ export interface IServiceContext {
     [index: string]: IContextFieldOptions;
   }
 
-export interface IServiceValidationGroup {
-    schema: IServiceSchema
+export interface IServiceValidationGroup<Target> {
+    schema: ISchema<Target>
 }
 
 export interface IEndPointsService {
@@ -27,8 +26,8 @@ export interface IServiceResponse {
 }
 
 export interface ICreateUserService extends IEndPointsService {
-    create (user: Request): Promise<IServiceResponse>
-    createSchema: IServiceValidationGroup
+    create (user: IUser): Promise<IServiceResponse>
+    createSchema: IServiceValidationGroup<IUser>
 }
 
 export interface IListUserService extends IEndPointsService {

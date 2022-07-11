@@ -1,5 +1,5 @@
 import AbstractRepository from '@domain/AbstractRepository'
-import { IRepositoryUser } from 'interfaces/domain/repository'
+import { IRepositoryUser, IUser, IVariableDatabase } from 'interfaces/domain/repository'
 import { injectable } from 'tsyringe'
 
 @injectable()
@@ -12,7 +12,7 @@ export default class UserRepository extends AbstractRepository implements IRepos
     return Math.max(...idArray) + 1
   }
 
-  async create (entity: object): Promise<void> {
+  async create (entity: IUser): Promise<void> {
     this._database.set(await this.getNewIndex(), entity)
   }
 
@@ -20,11 +20,11 @@ export default class UserRepository extends AbstractRepository implements IRepos
     return this._database.get(id)
   }
 
-  async readAll (): Promise<undefined | Map<number, object>> {
+  async readAll (): Promise<undefined | IVariableDatabase> {
     return this._database
   }
 
-  async update (id: number, newEntity: object): Promise<void> {
+  async update (id: number, newEntity: IUser): Promise<void> {
     this._database.set(id, newEntity)
   }
 

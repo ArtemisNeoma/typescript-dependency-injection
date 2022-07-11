@@ -4,13 +4,15 @@ import {
   booleanValidation, dateValidation, numberStringValidation, stringValidation
 } from '@util/validation/baseValidators'
 import getCep from './getCep'
+import { ISchema } from '@interfaces/domain/service'
+import { IUser } from '@interfaces/domain/repository'
 
 const { object } = Joi.types()
 
 const emailValidation = (name: string): StringSchema => stringValidation({ name })
   .email({ tlds: false })
 
-const userCreateSchema = object.keys({
+const userCreateSchema: ISchema<IUser> = object.keys({
   full_name: stringValidation({ name: 'full_name', min: 1, max: 256 })
     .required(),
   email: emailValidation('email').required(),
