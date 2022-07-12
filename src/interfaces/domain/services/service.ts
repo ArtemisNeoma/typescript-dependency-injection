@@ -1,6 +1,5 @@
 import { ValidationError } from 'joi'
 import { IEndPointsRepository, IUser } from '../repository'
-import { IServiceValidationGroup } from './validation'
 
 export interface IEndPointsService {
     repository: IEndPointsRepository
@@ -13,7 +12,6 @@ export interface IServiceResponse {
 
 export interface ICreateUserService extends IEndPointsService {
     create (user: IUser): Promise<IServiceResponse>
-    createSchema: IServiceValidationGroup<IUser>
 }
 
 export interface IListUserService extends IEndPointsService {
