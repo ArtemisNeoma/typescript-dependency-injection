@@ -1,27 +1,12 @@
 import axios from 'axios'
-import Joi from 'joi'
 
-const getCep = async (value: string): Promise<undefined> => {
+const getCep = async (value: string): Promise<object> => {
   try {
     const { status } = await axios.get(`https://cep.awesomeapi.com.br/json/${value}`)
-    if (status === 200) return undefined
+    if (status === 200) return { result: true }
+    return { result: true, msg: 'postal_code is not valid' }
   } catch (error) {
-    throw new Joi.ValidationError(
-      'postal_code.invalid',
-      [
-        {
-          message: 'postal_code.invalid',
-          path: ['postal_code'],
-          type: 'postal_code.invalid',
-          context: {
-            key: 'postal_code',
-            label: 'postal_code',
-            value
-          }
-        }
-      ],
-      value
-    )
+    return { result: false, msg: 'Error on validating postal_code' }
   }
 }
 
