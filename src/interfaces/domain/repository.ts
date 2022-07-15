@@ -16,7 +16,11 @@ export interface IUser {
 export type IVariableDatabase = Map<number, IUser>;
 
 export interface IEndPointsRepository {
-  readonly database: IVariableDatabase;
+  create(entity: IUser): Promise<void>;
+  read(id: number): Promise<undefined | object>;
+  readAll(): Promise<undefined | IVariableDatabase>;
+  update(id: number, newEntity: IUser): Promise<void>;
+  delete(id: number): Promise<void>;
 }
 
 export interface IRepositoryUser extends IEndPointsRepository {
