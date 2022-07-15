@@ -1,7 +1,5 @@
-import { MiddlewareArray } from '@interfaces/middleware'
-import { createMiddleware } from './createMiddleware'
+import { MiddlewareArray } from '@interfaces/middleware';
+import { createMiddleware } from './createMiddleware';
 
-const createUserMiddlewares: MiddlewareArray = [
-  createMiddleware
-]
-export default createUserMiddlewares
+const createUserMiddlewares: MiddlewareArray = [createMiddleware];
+export default createUserMiddlewares;

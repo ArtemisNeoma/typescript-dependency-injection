@@ -1,2 +1,2 @@
-import './domain'
-import './presentation'
+import './domain';
+import './presentation';

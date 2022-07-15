@@ -1,38 +1,45 @@
-import AbstractRepository from '@domain/AbstractRepository'
-import { IRepositoryUser, IUser, IVariableDatabase } from 'interfaces/domain/repository'
-import { injectable } from 'tsyringe'
+import AbstractRepository from '@domain/AbstractRepository';
+import {
+  IRepositoryUser,
+  IUser,
+  IVariableDatabase,
+} from 'interfaces/domain/repository';
+import { injectable } from 'tsyringe';
 
 @injectable()
-export default class UserRepository extends AbstractRepository implements IRepositoryUser {
-  async getNewIndex (): Promise<number> {
-    const idArray = Array.from(this._database.keys())
+export default class UserRepository
+  extends AbstractRepository
+  implements IRepositoryUser
+{
+  async getNewIndex(): Promise<number> {
+    const idArray = Array.from(this._database.keys());
     if (idArray.length === 0) {
-      return 0
+      return 0;
     }
-    return Math.max(...idArray) + 1
+    return Math.max(...idArray) + 1;
   }
 
-  async create (entity: IUser): Promise<void> {
-    this._database.set(await this.getNewIndex(), entity)
+  async create(entity: IUser): Promise<void> {
+    this._database.set(await this.getNewIndex(), entity);
   }
 
-  async read (id: number): Promise<undefined | object> {
-    return this._database.get(id)
+  async read(id: number): Promise<undefined | object> {
+    return this._database.get(id);
   }
 
-  async readAll (): Promise<undefined | IVariableDatabase> {
-    return this._database
+  async readAll(): Promise<undefined | IVariableDatabase> {
+    return this._database;
   }
 
-  async update (id: number, newEntity: IUser): Promise<void> {
-    this._database.set(id, newEntity)
+  async update(id: number, newEntity: IUser): Promise<void> {
+    this._database.set(id, newEntity);
   }
 
-  async delete (id: number): Promise<void> {
+  async delete(id: number): Promise<void> {
     this._database.forEach((value: object, key: number) => {
       if (key === id) {
-        this._database.delete(id)
+        this._database.delete(id);
       }
-    })
+    });
   }
 }

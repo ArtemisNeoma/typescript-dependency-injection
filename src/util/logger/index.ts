@@ -1,8 +1,9 @@
-import { createLogger, format, Logform, transports } from 'winston'
+import { createLogger, format, Logform, transports } from 'winston';
 
 const baseFormat = format.printf(
   ({ level, message, label, timestamp }: Logform.TransformableInfo) =>
-    `[${timestamp} - ${label}] ${level}: ${message}`)
+    `[${timestamp} - ${label}] ${level}: ${message}`,
+);
 
 export const serverLogger = createLogger({
   level: 'info',
@@ -10,12 +11,10 @@ export const serverLogger = createLogger({
     format.colorize(),
     format.label({ label: 'test' }),
     format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
+      format: 'YYYY-MM-DD HH:mm:ss',
     }),
-    baseFormat
+    baseFormat,
   ),
   defaultMeta: { service: 'Server Info' },
-  transports: [
-    new transports.Console()
-  ]
-})
+  transports: [new transports.Console()],
+});
