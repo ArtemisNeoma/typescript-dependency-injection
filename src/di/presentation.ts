@@ -15,10 +15,6 @@ import CreateUserController from 'presentation/controller/CreateUserController';
 import ListUserController from 'presentation/controller/ListUserController';
 import { container } from 'tsyringe';
 
-container.register<ICreateUserService>('CreateUserService', CreateUserService);
-
-container.register<IListUserService>('ListUserService', ListUserService);
-
 // Routers
 container.register<Router>('FrameworkRouter', { useValue: Router() });
 container.register<ICreateUserController>(
@@ -32,3 +28,7 @@ container.register<IListUserController>(
 container.register<MiddlewareArray>('CreateUserMiddlewares', {
   useValue: createUserMiddlewares,
 });
+
+container.register<ICreateUserService>('CreateUserService', CreateUserService);
+
+container.register<IListUserService>('ListUserService', ListUserService);
