@@ -1,4 +1,3 @@
-import AbstractService from '@domain/AbstractService';
 import {
   IServiceResponse,
   IListUserService,
@@ -7,16 +6,12 @@ import { IRepositoryUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()
-export default class ListUserService
-  extends AbstractService
-  implements IListUserService
-{
+export default class ListUserService implements IListUserService {
   repository: IRepositoryUser;
   constructor(
     @inject('UserRepository')
     repository: IRepositoryUser,
   ) {
-    super(repository);
     this.repository = repository;
   }
 

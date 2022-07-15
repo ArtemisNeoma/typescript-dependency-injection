@@ -1,4 +1,3 @@
-import AbstractService from '@domain/AbstractService';
 import {
   IServiceResponse,
   ICreateUserService,
@@ -7,10 +6,7 @@ import { IRepositoryUser, IUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
 import { IUserValidator } from '@interfaces/domain/services/validation';
 @injectable()
-export default class CreateUserService
-  extends AbstractService
-  implements ICreateUserService
-{
+export default class CreateUserService implements ICreateUserService {
   repository: IRepositoryUser;
   validator: IUserValidator;
   constructor(
@@ -19,7 +15,6 @@ export default class CreateUserService
     @inject('UserValidator')
     validator: IUserValidator,
   ) {
-    super(repository);
     this.repository = repository;
     this.validator = validator;
   }
