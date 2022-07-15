@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { IEndPointsService } from 'interfaces/domain/service';
+import { IEndPointsService } from 'interfaces/domain/services/service';
 
 export type RouteBase<Type> = (
   req: Request,
