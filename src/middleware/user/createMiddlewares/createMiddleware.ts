@@ -1,4 +1,5 @@
 import { RouteMiddleware } from '@interfaces/middleware';
+import { StatusError } from '@util/error';
 import { NextFunction, Request, Response } from 'express';
 import userSchema from './schema';
 
@@ -12,7 +13,6 @@ export const createMiddleware: RouteMiddleware = async (
     req.body = validateBody;
     next();
   } catch (error) {
-    res.json(error);
-    next(error);
+    next(new StatusError(422, `${error}`));
   }
 };
