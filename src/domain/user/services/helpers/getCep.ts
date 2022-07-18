@@ -1,4 +1,4 @@
-import { StatusError } from '@util/error';
+import StatusError from '@util/error';
 import axios from 'axios';
 
 const getCep = async (value: string): Promise<void> => {

@@ -1,4 +1,4 @@
-import { StatusError } from '@util/error';
+import StatusError from '@util/error';
 import calcCpfDigit from './calcCpfDigit';
 
 const isCpfValid = (cpf: string): void => {

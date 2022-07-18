@@ -5,7 +5,7 @@ import {
 import { IRepositoryUser, IUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
 import { IUserValidator } from '@interfaces/domain/services/validation';
-import { StatusError } from '@util/error';
+import StatusError from '@util/error';
 @injectable()
 export default class CreateUserService implements ICreateUserService {
   repository: IRepositoryUser;

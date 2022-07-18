@@ -4,7 +4,7 @@ import {
 } from 'interfaces/domain/services/service';
 import { IRepositoryUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
-import { StatusError } from '@util/error';
+import StatusError from '@util/error';
 
 @injectable()
 export default class ListUserService implements IListUserService {

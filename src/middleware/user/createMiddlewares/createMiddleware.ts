@@ -1,5 +1,5 @@
 import { RouteMiddleware } from '@interfaces/middleware';
-import { StatusError } from '@util/error';
+import StatusError from '@util/error';
 import { NextFunction, Request, Response } from 'express';
 import userSchema from './schema';
 
