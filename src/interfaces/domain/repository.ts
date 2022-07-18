@@ -25,5 +25,6 @@ export interface IEndPointsRepository {
 
 export interface IRepositoryUser extends IEndPointsRepository {
   create(entity: IUser): Promise<void>;
+  read(id: number): Promise<undefined | IUser>;
   readAll(): Promise<IVariableDatabase | undefined>;
 }

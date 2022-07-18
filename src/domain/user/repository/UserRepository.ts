@@ -23,7 +23,7 @@ export default class UserRepository
     this._database.set(await this.getNewIndex(), entity);
   }
 
-  async read(id: number): Promise<undefined | object> {
+  async read(id: number): Promise<undefined | IUser> {
     return this._database.get(id);
   }
 
