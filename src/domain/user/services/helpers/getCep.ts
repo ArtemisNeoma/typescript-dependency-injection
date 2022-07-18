@@ -1,3 +1,4 @@
+import { StatusError } from '@util/error';
 import axios from 'axios';
 
 const getCep = async (value: string): Promise<void> => {
@@ -7,7 +8,7 @@ const getCep = async (value: string): Promise<void> => {
     );
     if (status === 200) return;
   } catch (error) {
-    throw new Error('postal_code is invalid');
+    throw new StatusError(422, 'ValidationError: postal_code is invalid');
   }
 };
 

@@ -4,6 +4,7 @@ import {
 } from 'interfaces/domain/services/service';
 import { IRepositoryUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
+import { StatusError } from '@util/error';
 
 @injectable()
 export default class ListUserService implements IListUserService {
@@ -22,9 +23,9 @@ export default class ListUserService implements IListUserService {
         const usersJSON = Object.fromEntries(allUsers);
         return { code: 200, info: usersJSON };
       }
-      return { code: 404 };
+      throw new StatusError(404, 'Error: user list is empty');
     } catch (err) {
-      return { code: 500, info: `${err}` };
+      throw new StatusError(500, String(err));
     }
   }
 }

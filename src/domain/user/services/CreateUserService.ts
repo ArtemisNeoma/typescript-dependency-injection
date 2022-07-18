@@ -5,6 +5,7 @@ import {
 import { IRepositoryUser, IUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
 import { IUserValidator } from '@interfaces/domain/services/validation';
+import { StatusError } from '@util/error';
 @injectable()
 export default class CreateUserService implements ICreateUserService {
   repository: IRepositoryUser;
@@ -26,8 +27,7 @@ export default class CreateUserService implements ICreateUserService {
       return { code: 201, info: 'User Created' };
     } catch (err: unknown) {
       const { message } = err as Error;
-      console.log('> ' + message);
-      return { code: 422, info: message };
+      throw new StatusError(422, message);
     }
   }
 }
