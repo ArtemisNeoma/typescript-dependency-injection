@@ -21,13 +21,8 @@ export default class CreateUserService implements ICreateUserService {
   }
 
   async create(user: IUser): Promise<IServiceResponse> {
-    try {
-      await this.validator.validate(user);
-      this.repository.create(user);
-      return { code: 201, info: 'User Created' };
-    } catch (err: unknown) {
-      const { message } = err as Error;
-      throw new StatusError(422, message);
-    }
+    await this.validator.validate(user);
+    this.repository.create(user);
+    return { code: 201, info: 'User Created' };
   }
 }
