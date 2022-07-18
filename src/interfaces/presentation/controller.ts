@@ -12,9 +12,12 @@ export interface IEndPointsController {
 }
 
 export interface ICreateUserController extends IEndPointsController {
-  handle: RouteBase<Response>;
+  handle: (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ) => Promise<Response | undefined>;
 }
-
 export interface IListUserController extends IEndPointsController {
   handle: RouteBase<void>;
 }
