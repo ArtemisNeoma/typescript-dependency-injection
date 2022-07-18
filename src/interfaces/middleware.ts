@@ -18,7 +18,3 @@ export type RouteMiddleware = (
 ) => Promise<void>;
 
 export type MiddlewareArray = Array<RouteMiddleware>;
-
-export interface IStatusError extends Error {
-  code: number;
-}
