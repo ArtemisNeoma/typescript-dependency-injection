@@ -33,11 +33,11 @@ container.register('isCpfValid', {
 
 // Routers
 container.register<Router>('FrameworkRouter', { useValue: Router() });
-container.register<ICreateUserController>(
+container.registerSingleton<ICreateUserController>(
   'CreateUserController',
   CreateUserController,
 );
-container.register<IListUserController>(
+container.registerSingleton<IListUserController>(
   'ListUserController',
   ListUserController,
 );
