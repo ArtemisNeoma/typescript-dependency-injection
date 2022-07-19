@@ -1,7 +1,4 @@
-import {
-  IServiceResponse,
-  ICreateUserService,
-} from 'interfaces/domain/services/service';
+import { ICreateUserService } from 'interfaces/domain/services/service';
 import { IRepositoryUser, IUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
 import { IUserValidator } from '@interfaces/domain/services/validation';
@@ -20,9 +17,9 @@ export default class CreateUserService implements ICreateUserService {
     this.validator = validator;
   }
 
-  async create(user: IUser): Promise<IServiceResponse> {
+  async create(user: IUser): Promise<void> {
     await this.validator.validate(user);
-    this.repository.create(user);
-    return { code: 201, info: 'User Created' };
+    await this.repository.create(user);
+    return;
   }
 }

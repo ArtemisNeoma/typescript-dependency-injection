@@ -16,8 +16,8 @@ export default class CreateUserController implements ICreateUserController {
     next: NextFunction,
   ): Promise<Response | undefined> => {
     try {
-      const { code, info } = await this.service.create(req.body);
-      return res.status(code).json(info);
+      await this.service.create(req.body);
+      return res.status(201).json('User Created');
     } catch (error) {
       next(error);
     }

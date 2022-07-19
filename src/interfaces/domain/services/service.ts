@@ -5,15 +5,14 @@ export interface IEndPointsService {
   repository: IEndPointsRepository;
 }
 
-export interface IServiceResponse {
-  code: number;
-  info?: string | object | ValidationError;
+export interface IDatabaseObject {
+  [k: string]: IUser;
 }
 
 export interface ICreateUserService extends IEndPointsService {
-  create(user: IUser): Promise<IServiceResponse>;
+  create(user: IUser): Promise<void>;
 }
 
 export interface IListUserService extends IEndPointsService {
-  readAll(): Promise<IServiceResponse>;
+  readAll(): Promise<IDatabaseObject>;
 }

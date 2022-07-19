@@ -11,7 +11,7 @@ export default class ListUserController implements IListUserController {
   }
 
   handle = async (req: Request, res: Response): Promise<void> => {
-    const { code, info } = await this.service.readAll();
-    res.status(code).send({ message: info });
+    const info = await this.service.readAll();
+    res.status(200).send({ message: info });
   };
 }
