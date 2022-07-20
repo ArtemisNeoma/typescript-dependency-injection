@@ -1,4 +1,4 @@
-import { IUser } from '../repository';
+import { IUser, IVariableDatabase } from '../repository';
 export interface IUserValidator {
-  validate(user: IUser): Promise<void>;
+  validate(user: IUser, database: IVariableDatabase): Promise<void>;
 }
