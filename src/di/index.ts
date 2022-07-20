@@ -21,17 +21,6 @@ import CreateUserController from 'presentation/controller/CreateUserController';
 import ListUserController from 'presentation/controller/ListUserController';
 import { container } from 'tsyringe';
 
-container.registerSingleton<IRepositoryUser>('UserRepository', UserRepository);
-container.registerSingleton<IUserValidator>('UserValidator', UserValidator);
-
-container.register('getCep', {
-  useValue: getCep,
-});
-container.register('isCpfValid', {
-  useValue: isCpfValid,
-});
-
-// Routers
 container.register<Router>('FrameworkRouter', { useValue: Router() });
 container.registerSingleton<ICreateUserController>(
   'CreateUserController',
@@ -46,5 +35,14 @@ container.register<MiddlewareArray>('CreateUserMiddlewares', {
 });
 
 container.register<ICreateUserService>('CreateUserService', CreateUserService);
-
 container.register<IListUserService>('ListUserService', ListUserService);
+
+container.registerSingleton<IRepositoryUser>('UserRepository', UserRepository);
+container.registerSingleton<IUserValidator>('UserValidator', UserValidator);
+
+container.register('getCep', {
+  useValue: getCep,
+});
+container.register('isCpfValid', {
+  useValue: isCpfValid,
+});
