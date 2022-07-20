@@ -10,8 +10,9 @@ import {
   IListUserService,
 } from '@interfaces/domain/services/service';
 import { IUserValidator } from '@interfaces/domain/services/validation';
-import { MiddlewareArray } from '@interfaces/middleware';
+import { ControllerAdapterType, MiddlewareArray } from '@interfaces/middleware';
 import { IEndPointsController } from '@interfaces/presentation/controller';
+import ControllerAdapter from '@middleware/controllerAdapter';
 import createUserMiddlewares from '@middleware/user/createMiddlewares';
 import isCpfValid from '@util/validation/Cpf/isCpfValid';
 import { Router } from 'express';
@@ -30,6 +31,9 @@ container.registerSingleton<IEndPointsController>(
 );
 container.register<MiddlewareArray>('CreateUserMiddlewares', {
   useValue: createUserMiddlewares,
+});
+container.register<ControllerAdapterType>('ControllerAdapter', {
+  useValue: ControllerAdapter,
 });
 
 container.register<ICreateUserService>('CreateUserService', CreateUserService);
