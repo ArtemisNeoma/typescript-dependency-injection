@@ -27,7 +27,7 @@ export default class UserRepository
     return this._database.get(id);
   }
 
-  async readAll(): Promise<undefined | IVariableDatabase> {
+  async readAll(): Promise<IVariableDatabase> {
     return this._database;
   }
 
