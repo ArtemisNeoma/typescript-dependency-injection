@@ -1,23 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
-import { IEndPointsService } from 'interfaces/domain/services/service';
 
-export type RouteBase<Type> = (
+export type RouteBase = (
   req: Request,
   res: Response,
-  next?: NextFunction,
-) => Promise<Type>;
+  next: NextFunction,
+) => Promise<void>;
 
 export interface IEndPointsController {
-  service: IEndPointsService;
-}
-
-export interface ICreateUserController extends IEndPointsController {
-  handle: (
-    req: Request,
-    res: Response,
-    next: NextFunction,
-  ) => Promise<Response | undefined>;
-}
-export interface IListUserController extends IEndPointsController {
-  handle: RouteBase<void>;
+  handle: RouteBase;
 }
