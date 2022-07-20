@@ -11,10 +11,7 @@ import {
 } from '@interfaces/domain/services/service';
 import { IUserValidator } from '@interfaces/domain/services/validation';
 import { MiddlewareArray } from '@interfaces/middleware';
-import {
-  ICreateUserController,
-  IListUserController,
-} from '@interfaces/presentation/controller';
+import { IEndPointsController } from '@interfaces/presentation/controller';
 import createUserMiddlewares from '@middleware/user/createMiddlewares';
 import isCpfValid from '@util/validation/Cpf/isCpfValid';
 import { Router } from 'express';
@@ -23,11 +20,11 @@ import ListUserController from 'presentation/controller/ListUserController';
 import { container } from 'tsyringe';
 
 container.register<Router>('FrameworkRouter', { useValue: Router() });
-container.registerSingleton<ICreateUserController>(
+container.registerSingleton<IEndPointsController>(
   'CreateUserController',
   CreateUserController,
 );
-container.registerSingleton<IListUserController>(
+container.registerSingleton<IEndPointsController>(
   'ListUserController',
   ListUserController,
 );
