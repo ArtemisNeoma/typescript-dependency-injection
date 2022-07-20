@@ -10,16 +10,16 @@ export default class CreateUserController implements ICreateUserController {
     this.service = service;
   }
 
-  handle = async (
+  async handle(
     req: Request,
     res: Response,
     next: NextFunction,
-  ): Promise<Response | undefined> => {
+  ): Promise<Response | undefined> {
     try {
       await this.service.create(req.body);
       return res.status(201).json('User Created');
     } catch (error) {
       next(error);
     }
-  };
+  }
 }

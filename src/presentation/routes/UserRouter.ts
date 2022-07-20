@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-constructor */
 import { MiddlewareArray } from '@interfaces/middleware';
 import { Router } from 'express';
 import {
