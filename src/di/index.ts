@@ -1,5 +1,6 @@
 import UserRepository from '@domain/user/repository/UserRepository';
 import CreateUserService from '@domain/user/services/CreateUserService';
+import checkUnique from '@domain/user/services/helpers/checkUnique';
 import getCep from '@domain/user/services/helpers/getCep';
 import UserValidator from '@domain/user/services/helpers/UserValidator';
 import ListUserService from '@domain/user/services/ListUserService';
@@ -45,4 +46,7 @@ container.register('getCep', {
 });
 container.register('isCpfValid', {
   useValue: isCpfValid,
+});
+container.register('checkUnique', {
+  useValue: checkUnique,
 });
