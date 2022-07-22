@@ -2,7 +2,7 @@ import {
   IDatabaseObject,
   IListUserService,
 } from 'interfaces/domain/services/service';
-import { IRepositoryUser, IUser } from 'interfaces/domain/repository';
+import { IRepositoryUser } from 'interfaces/domain/repository';
 import { inject, injectable } from 'tsyringe';
 import StatusError from '@util/error';
 
