@@ -11,7 +11,7 @@ export default class UserRepository
   extends AbstractRepository
   implements IRepositoryUser
 {
-  async getNewIndex(): Promise<number> {
+  getNewIndex(): number {
     const idArray = Array.from(this._database.keys());
     if (idArray.length === 0) {
       return 0;
@@ -19,23 +19,23 @@ export default class UserRepository
     return Math.max(...idArray) + 1;
   }
 
-  async create(entity: IUser): Promise<void> {
-    this._database.set(await this.getNewIndex(), entity);
+  create(entity: IUser): void {
+    this._database.set(this.getNewIndex(), entity);
   }
 
-  async read(id: number): Promise<undefined | IUser> {
+  read(id: number): undefined | IUser {
     return this._database.get(id);
   }
 
-  async readAll(): Promise<IVariableDatabase> {
+  readAll(): IVariableDatabase {
     return this._database;
   }
 
-  async update(id: number, newEntity: IUser): Promise<void> {
+  update(id: number, newEntity: IUser): void {
     this._database.set(id, newEntity);
   }
 
-  async delete(id: number): Promise<void> {
+  delete(id: number): void {
     this._database.forEach((value: object, key: number) => {
       if (key === id) {
         this._database.delete(id);
