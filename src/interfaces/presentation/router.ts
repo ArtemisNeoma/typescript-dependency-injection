@@ -4,7 +4,7 @@ import { ICreateUserController, IListUserController } from './controller';
 
 export interface IEndPointsRouter {
   router: Router;
-  routes(): Promise<void>;
+  routes(): void;
 }
 
 export interface IRouterUser {
