@@ -1,6 +1,6 @@
 import { MiddlewareArray } from '@interfaces/middleware';
 import { Router } from 'express';
-import { ICreateUserController, IListUserController } from './controller';
+import { IEndPointsController } from './controller';
 
 export interface IEndPointsRouter {
   router: Router;
@@ -8,7 +8,7 @@ export interface IEndPointsRouter {
 }
 
 export interface IRouterUser {
-  createUserController: ICreateUserController;
-  listUserController: IListUserController;
+  createUserController: IEndPointsController;
+  listUserController: IEndPointsController;
   createMiddlewares: MiddlewareArray;
 }
