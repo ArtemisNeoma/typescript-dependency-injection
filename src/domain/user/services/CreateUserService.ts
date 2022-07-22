@@ -18,8 +18,8 @@ export default class CreateUserService implements ICreateUserService {
   }
 
   async create(user: IUser): Promise<void> {
-    await this.validator.validate(user, await this.repository.readAll());
-    await this.repository.create(user);
+    await this.validator.validate(user, this.repository.readAll());
+    this.repository.create(user);
     return;
   }
 }

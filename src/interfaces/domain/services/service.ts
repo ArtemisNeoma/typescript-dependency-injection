@@ -14,5 +14,5 @@ export interface ICreateUserService extends IEndPointsService {
 }
 
 export interface IListUserService extends IEndPointsService {
-  readAll(): Promise<IDatabaseObject>;
+  readAll(): IDatabaseObject;
 }

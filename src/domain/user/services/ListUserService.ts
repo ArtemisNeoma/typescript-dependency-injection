@@ -16,9 +16,9 @@ export default class ListUserService implements IListUserService {
     this.repository = repository;
   }
 
-  async readAll(): Promise<IDatabaseObject> {
+  readAll(): IDatabaseObject {
     try {
-      const allUsers = await this.repository.readAll();
+      const allUsers = this.repository.readAll();
       if (allUsers !== undefined) {
         const usersJSON = Object.fromEntries(allUsers);
         return usersJSON;
