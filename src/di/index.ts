@@ -16,8 +16,8 @@ import ControllerAdapter from '@middleware/controllerAdapter';
 import createUserMiddlewares from '@middleware/user/createMiddlewares';
 import isCpfValid from '@util/validation/Cpf/isCpfValid';
 import { Router } from 'express';
-import CreateUserController from 'presentation/controller/CreateUserController';
-import ListUserController from 'presentation/controller/ListUserController';
+import CreateUserController from '@presentation/controller/CreateUserController';
+import ListUserController from '@presentation/controller/ListUserController';
 import { container } from 'tsyringe';
 
 container.register<Router>('FrameworkRouter', { useValue: Router() });
